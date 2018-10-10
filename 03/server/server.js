@@ -8,7 +8,7 @@ const frontendApp = new Koa();
 const backendRouter = new Router();
 const frontendRouter = new Router();
 
-const bundle = fs.readFileSync(path.resolve(__dirname, '../dist/server.js'), 'utf-8');
+const bundle = fs.readFileSync(path.resolve(__dirname, '../dist/server.bundle.js'), 'utf-8');
 const renderer = require('vue-server-renderer').createBundleRenderer(bundle, {
   template: fs.readFileSync(path.resolve(__dirname, '../dist/index.ssr.html'), 'utf-8')
 });

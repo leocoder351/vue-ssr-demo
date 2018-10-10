@@ -1,7 +1,6 @@
 <template>
   <div class="bar">
-    <h1 @click="onHandleClick">Bar</h1>
-    <p>Component</p>
+    <h1 @click="onHandleClick">Bar Component</h1>
     <h2>异步Ajax数据：</h2>
     <span>{{ msg }}</span>
   </div>

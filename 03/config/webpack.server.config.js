@@ -11,7 +11,6 @@ module.exports = merge(base, {
     server: path.resolve(__dirname, '../src/entry-server.js')
   },
   output: {
-    filename: '[name].js',
     libraryTarget: 'commonjs2'
   },
   plugins: [
@@ -19,7 +18,7 @@ module.exports = merge(base, {
       template: path.resolve(__dirname, '../src/index.ssr.html'),
       filename: 'index.ssr.html',
       files: {
-        js: 'client.js'
+        js: 'client.bundle.js'
       },
       excludeChunks: ['server']
     })

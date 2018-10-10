@@ -1,12 +1,11 @@
 <template>
   <div class="bar">
-    <h1>Bar</h1>
-    <p>Component</p>
+    <h1>Bar Component</h1>
   </div>
 </template>
 
 <style>
 .bar {
-  background: blue;
+  background: bisque;
 }
 </style>

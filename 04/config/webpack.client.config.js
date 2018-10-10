@@ -11,9 +11,9 @@ module.exports = merge(base, {
 
   plugins: [
     new VueSSRClientPlugin(),
-    // new HtmlWebpackPlugin({
-    //   template: path.resolve(__dirname, '../src/index.html'),
-    //   filename: 'index.html'
-    // })
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, '../src/index.html'),
+      filename: 'index.html'
+    })
   ]
 });

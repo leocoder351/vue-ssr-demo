@@ -108,22 +108,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  beforeCreate() {
+  beforeCreate: function beforeCreate() {
     console.log('App.vue beforeCreate');
   },
-
-  created() {
+  created: function created() {
     console.log('App.vue created');
   },
-
-  beforeMount() {
+  beforeMount: function beforeMount() {
     console.log('App.vue beforeMount');
   },
-
-  mounted() {
+  mounted: function mounted() {
     console.log('App.vue mounted');
   },
-
   components: {
     Foo: _components_Foo_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     Bar: _components_Bar_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
@@ -149,36 +145,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-const fetchInitialData = ({
-  store
-}) => {
+var fetchInitialData = function fetchInitialData(_ref) {
+  var store = _ref.store;
   store.dispatch('fetchBar');
 };
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   asyncData: fetchInitialData,
   methods: {
-    onHandleClick() {
+    onHandleClick: function onHandleClick() {
       alert('bar');
     }
-
   },
-
-  mounted() {
+  mounted: function mounted() {
     // 因为服务端渲染只有 beforeCreate 和 created 两个生命周期，不会走这里
     // 所以把调用 Ajax 初始化数据也写在这里，是为了供单独浏览器渲染使用
-    let store = this.$store;
+    var store = this.$store;
     fetchInitialData({
-      store
+      store: store
     });
   },
-
   computed: {
-    msg() {
+    msg: function msg() {
       return this.$store.state.bar;
     }
-
   }
 });
 
@@ -199,13 +189,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
-    onHandleClick() {
+    onHandleClick: function onHandleClick() {
       alert('foo');
     }
-
   }
 });
 
@@ -382,7 +370,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "bar" }, [
     _vm._ssrNode(
-      "<h1>Bar</h1> <p>Component</p> <h2>异步Ajax数据：</h2> <span>" +
+      "<h1>Bar Component</h1> <h2>异步Ajax数据：</h2> <span>" +
         _vm._ssrEscape(_vm._s(_vm.msg)) +
         "</span>"
     )
@@ -411,7 +399,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "foo" }, [
-    _vm._ssrNode("<h1>Foo</h1> <p>Component</p>")
+    _vm._ssrNode("<h1>Foo Component</h1>")
   ])
 }
 var staticRenderFns = []
@@ -9752,7 +9740,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "4ffa19e6"
+  "20865121"
   
 )
 
@@ -9810,14 +9798,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function createApp() {
-  const store = Object(_store_store_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
-  const app = new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
-    store,
-    render: h => h(_App_vue__WEBPACK_IMPORTED_MODULE_2__["default"])
+  var store = Object(_store_store_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  var app = new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
+    store: store,
+    render: function render(h) {
+      return h(_App_vue__WEBPACK_IMPORTED_MODULE_2__["default"]);
+    }
   });
   return {
-    app,
-    store,
+    app: app,
+    store: store,
     App: _App_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   };
 }
@@ -9855,7 +9845,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   injectStyles,
   null,
-  "86eef0c4"
+  "2e8155ec"
   
 )
 
@@ -9943,7 +9933,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   injectStyles,
   null,
-  "b049f25e"
+  "57dc5786"
   
 )
 
@@ -10011,23 +10001,23 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app.js */ "./src/app.js");
 
-/* harmony default export */ __webpack_exports__["default"] = (context => {
-  return new Promise((resolve, reject) => {
-    const {
-      app,
-      store,
-      App
-    } = Object(_app_js__WEBPACK_IMPORTED_MODULE_0__["createApp"])();
-    let components = App.components;
-    let asyncDataPromiseFns = [];
-    Object.values(components).forEach(component => {
+/* harmony default export */ __webpack_exports__["default"] = (function (context) {
+  return new Promise(function (resolve, reject) {
+    var _createApp = Object(_app_js__WEBPACK_IMPORTED_MODULE_0__["createApp"])(),
+        app = _createApp.app,
+        store = _createApp.store,
+        App = _createApp.App;
+
+    var components = App.components;
+    var asyncDataPromiseFns = [];
+    Object.values(components).forEach(function (component) {
       if (component.asyncData) {
         asyncDataPromiseFns.push(component.asyncData({
-          store
+          store: store
         }));
       }
     });
-    Promise.all(asyncDataPromiseFns).then(result => {
+    Promise.all(asyncDataPromiseFns).then(function (result) {
       // 当使用 template 时，context.state 将作为 window.__INITIAL_STATE__ 状态，自动嵌入到最终的 HTML 中
       context.state = store.state;
       console.log(222);
@@ -10052,40 +10042,39 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.runtime.esm.js");
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 
 
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
-const fetchBar = function () {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
+var _fetchBar = function fetchBar() {
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
       resolve('bar 组件返回 ajax 数据');
     }, 1000);
   });
 };
 
 function createStore() {
-  const store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
+  var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
     state: {
       bar: ''
     },
     mutations: {
-      'SET_BAR'(state, data) {
+      'SET_BAR': function SET_BAR(state, data) {
         state.bar = data;
       }
-
     },
     actions: {
-      fetchBar({
-        commit
-      }) {
-        return fetchBar().then(data => {
+      fetchBar: function fetchBar(_ref) {
+        var commit = _ref.commit;
+        return _fetchBar().then(function (data) {
           commit('SET_BAR', data);
-        }).catch(err => {
+        }).catch(function (err) {
           console.error(err);
         });
       }
-
     }
   });
 
@@ -10100,9 +10089,9 @@ function createStore() {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (createStore);
-typeof window;
+typeof window === "undefined" ? "undefined" : _typeof(window);
 
 /***/ })
 
 /******/ });
-//# sourceMappingURL=server.js.map
+//# sourceMappingURL=server.bundle.js.map

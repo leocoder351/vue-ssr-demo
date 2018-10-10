@@ -11,7 +11,7 @@ const frontendRouter = new Router();
 
 const serverBundle = require(path.resolve(__dirname, '../dist/vue-ssr-server-bundle.json'));
 const clientManifest = require(path.resolve(__dirname, '../dist/vue-ssr-client-manifest.json'));
-const template = fs.readFileSync(path.resolve(__dirname, '../dist/index.html'), 'utf-8');
+const template = fs.readFileSync(path.resolve(__dirname, '../dist/index.ssr.html'), 'utf-8');
 
 const renderer = createBundleRenderer(serverBundle, {
   runInNewContext: false,

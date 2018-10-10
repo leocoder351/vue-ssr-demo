@@ -12,7 +12,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '../dist'),
     publicPath: '/',
-    filename: 'main.bundle.js'
+    filename: '[name].bundle.js'
   },
 
   module: {
@@ -42,12 +42,6 @@ module.exports = {
   },
 
   plugins: [
-    new VueLoaderPlugin(),
-    new CopyWebpackPlugin([
-      {
-        from: path.resolve(__dirname, '../src/index.html'), 
-        to: './index.html'
-      }
-    ])
+    new VueLoaderPlugin()
   ]
 };
