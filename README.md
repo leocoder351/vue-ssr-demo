@@ -16,4 +16,4 @@ vue-ssr-demo
 
 本项目配套教程请参考我写的博客：
 
-**[带你五步学会Vue SSR](https://segmentfault.com/a/1190000016636656)**
+**[带你五步学会Vue SSR](https://segmentfault.com/a/1190000016637877)**
