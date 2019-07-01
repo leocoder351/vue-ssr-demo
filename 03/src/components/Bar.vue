@@ -8,7 +8,7 @@
 
 <script>
   const fetchInitialData = ({ store }) => {
-    store.dispatch('fetchBar');
+    return store.dispatch('fetchBar');
   };
 
   export default {
